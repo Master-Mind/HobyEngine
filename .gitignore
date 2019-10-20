@@ -328,3 +328,13 @@ ASALocalRun/
 
 # MFractors (Xamarin productivity tool) working folder 
 .mfractor/
+
+#shit that the default ignore keeps missing
+*.vcxproj
+*.vssbe
+*.vcxproj.filters
+*.sln
+*.lib
+*.exe
+dummyfilefortheparsertopoke.txt
+includedirs.json

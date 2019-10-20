@@ -1,0 +1,27 @@
+<10>
+	<Components>
+		<Transform>
+			<Translation type="vec3">
+				<x type="float">0.000000</x>
+				<y type="float">0.000000</y>
+				<z type="float">0.000000</z>
+			</Translation>
+			<Rotation type="float">0.000000</Rotation>
+			<Scale type="vec3">
+				<x type="float">1.000000</x>
+				<y type="float">1.000000</y>
+				<z type="float">1.000000</z>
+			</Scale>
+		</Transform>
+		<SpriteRenderer>
+			<_mySprite type="GenericAssetRef">360_A</_mySprite>
+		</SpriteRenderer>
+	</Components>
+	<Children>
+		<12>
+			<Components/>
+			<Children/>
+		</12>
+	</Children>
+</10>
+
