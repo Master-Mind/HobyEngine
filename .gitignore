@@ -331,7 +331,6 @@ ASALocalRun/
 
 #shit that the default ignore keeps missing
 *.vcxproj
-*.vssbe
 *.vcxproj.filters
 *.sln
 *.lib

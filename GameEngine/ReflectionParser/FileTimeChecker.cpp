@@ -1,10 +1,7 @@
 #include "FileTimeChecker.h"
 #include <filesystem>
 #include <cassert>
-#include <rapidxml_print.hpp>
-#include <boost/interprocess/sync/named_mutex.hpp>
 using namespace std::filesystem;
-using namespace boost::interprocess;
 
 const char fileTimesLoc[] = "./ReflectionParser/dummyfilefortheparsertopoke.txt";
 

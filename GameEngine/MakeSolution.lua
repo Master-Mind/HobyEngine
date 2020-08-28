@@ -76,9 +76,6 @@ function BaseProjSetup(ProjKind, Name, AdditionalIncludeDirs)
   if(AdditionalIncludeDirs ~= nil) then
 	AllIncludeDirs = TableConcat(AllIncludeDirs, AdditionalIncludeDirs)
   end
-  if(Name ~= "ReflectionParserBootstrapper") then
-	prebuildcommands 'call "../ReflectionParser/callcodeparse.bat ' .. ProjKind .. '"'
-  end
   dependson "ReflectionParser"
   disablewarnings { "4244", "5030"}
   flags { "MultiProcessorCompile" }
@@ -185,9 +182,6 @@ project "ReflectionParser"
   {
 	"C:/libs/llvm-project/build/Release/lib/libclang.lib"
   }
-  
-project "ReflectionParserBootstrapper"
-  BaseProjSetup("ConsoleApp", "ReflectionParserBootstrapper", {})
   
 project "ReflectionTest"
   BaseProjSetup("WindowedApp", "ReflectionTest")
