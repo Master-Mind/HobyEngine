@@ -6,12 +6,14 @@
 class FileTimeChecker
 {
 public:
-	//reads in file time file and records the times
-	static void Init();
+	//reads in file time file and records the times, returns whether we have the file lock
+	static bool Init();
 	//returns whether the given file has been edited since reflection parse has last seen it
 	static bool IsDirty(const std::filesystem::path &pathToCheck);
 	//saves current filetimes
 	static void DeInit();
 private:
 	static std::filesystem::file_time_type lastRunTime;
+	//also functions as a named mutex
+	static FILE*filetocheck;
 };

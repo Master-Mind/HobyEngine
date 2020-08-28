@@ -5,10 +5,6 @@ const char classReflStart[] =
 "{\n"
 "	%s *temp = nullptr;\n"
 "	_isBase = false;\n"
-"	if constexpr(std::is_base_of<Component, %s>::value)\n"
-"	{\n"
-"		ComponentFactory::GetAllocFuncs().insert({typeid(%s).hash_code(),  reinterpret_cast<void*(*)()>(&TypeAllocator<%s>::Allocate)});\n"
-"	}\n"
 "	const size_t countStart = __COUNTER__;\n";
 
 const char classReflEnd[] = 

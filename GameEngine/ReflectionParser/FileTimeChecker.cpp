@@ -2,20 +2,30 @@
 #include <filesystem>
 #include <cassert>
 #include <rapidxml_print.hpp>
+#include <boost/interprocess/sync/named_mutex.hpp>
 using namespace std::filesystem;
+using namespace boost::interprocess;
 
 const char fileTimesLoc[] = "./ReflectionParser/dummyfilefortheparsertopoke.txt";
 
 file_time_type FileTimeChecker::lastRunTime;
+FILE *FileTimeChecker::filetocheck = nullptr;
 
-void FileTimeChecker::Init()
+bool FileTimeChecker::Init()
 {
-	if (!exists(fileTimesLoc))
+	if (exists(fileTimesLoc))
 	{
-		return;
+		lastRunTime = last_write_time(fileTimesLoc);
 	}
+	
+	filetocheck = fopen(fileTimesLoc, "w");
+	fwrite("f", 1, 1, filetocheck);
 
-	lastRunTime = last_write_time(fileTimesLoc);
+	fclose(filetocheck);
+	if (!filetocheck)
+		return false;
+
+	return true;
 }
 
 bool FileTimeChecker::IsDirty(const path& pathToCheck)
@@ -27,13 +37,4 @@ bool FileTimeChecker::IsDirty(const path& pathToCheck)
 
 void FileTimeChecker::DeInit()
 {
-	FILE *outFile = fopen(fileTimesLoc, "w");
-	if (!outFile)
-		perror("fopen");
-	
-	assert(outFile);
-
-	fwrite("f", 1, 1, outFile);
-
-	fclose(outFile);
 }

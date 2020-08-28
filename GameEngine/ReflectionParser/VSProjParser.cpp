@@ -49,21 +49,23 @@ VSProjParser::VSProjParser(path &projFile):
 				auto defgroup = proj->first_node("ItemDefinitionGroup");
 				auto links = defgroup->first_node("Link");
 				auto deps = links->first_node("AdditionalDependencies");
-
-				boost::char_separator<char> sep(";");
-				std::string depstr = deps->value();
-
-				boost::tokenizer tok(depstr, sep);
-
-				for (path dep : tok)
+				if(deps)
 				{
-					if(dep.c_str()[0] != '%')
+					boost::char_separator<char> sep(";");
+					std::string depstr = deps->value();
+
+					boost::tokenizer tok(depstr, sep);
+
+					for (path dep : tok)
 					{
-						std::string projname = dep.filename().string();
+						if (dep.c_str()[0] != '%')
+						{
+							std::string projname = dep.filename().string();
 
-						projname.erase(projname.find_last_of('.'));
+							projname.erase(projname.find_last_of('.'));
 
-						_dependencies.push_back(projname);						
+							_dependencies.push_back(projname);
+						}
 					}
 				}
 			}

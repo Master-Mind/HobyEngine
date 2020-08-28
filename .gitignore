@@ -338,3 +338,10 @@ ASALocalRun/
 *.exe
 dummyfilefortheparsertopoke.txt
 includedirs.json
+GameEngine/ReflectionTest/codegen.cpp
+
+*.vsixmanifest
+
+*.csproj
+
+GameEngine/GameEngine/codegen.cpp

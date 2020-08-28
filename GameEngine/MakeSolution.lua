@@ -1,7 +1,7 @@
 json = require'json'
 BaseIncludeDirs = {
   "C:/libs/lua/lua-5.3.5/src",
-  "C:/Users/pholl/source/repos/GameEngine/GameEngine",
+  "C:/Users/pholl/Documents/CodeProjects/HobyEngine/GameEngine/GameEngine",
   "C:/libs/imgui",
   "C:/libs/stb-master/stb-master",
   "C:/libs/glfw-3.2.1.bin.WIN64/include",
@@ -75,6 +75,9 @@ function BaseProjSetup(ProjKind, Name, AdditionalIncludeDirs)
   includedirs(AdditionalIncludeDirs)
   if(AdditionalIncludeDirs ~= nil) then
 	AllIncludeDirs = TableConcat(AllIncludeDirs, AdditionalIncludeDirs)
+  end
+  if(Name ~= "ReflectionParserBootstrapper") then
+	prebuildcommands 'call "../ReflectionParser/callcodeparse.bat ' .. ProjKind .. '"'
   end
   dependson "ReflectionParser"
   disablewarnings { "4244", "5030"}
@@ -171,18 +174,20 @@ project "Utilities"
     
 project "ReflectionParser"
   BaseProjSetup("ConsoleApp", "ReflectionParser", {"C:/libs/llvm-project/clang/include", "C:/libs/rapidjson/include"})
+  debugargs { "GameEngine.sln" }
   filter "configurations:Debug"
-  debugcommand (".\\ReflectionParser\\bin\\Win64\\Debug\\ReflectionParser.exe ./")
   links
   {
 	"C:/libs/llvm-project/build/Debug/lib/libclang.lib"
   }
   filter "configurations:Release"
-  debugcommand (".\\ReflectionParser\\bin\\Win64\\Release\\ReflectionParser.exe ./")
   links
   {
 	"C:/libs/llvm-project/build/Release/lib/libclang.lib"
   }
+  
+project "ReflectionParserBootstrapper"
+  BaseProjSetup("ConsoleApp", "ReflectionParserBootstrapper", {})
   
 project "ReflectionTest"
   BaseProjSetup("WindowedApp", "ReflectionTest")
