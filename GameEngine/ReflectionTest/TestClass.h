@@ -1,7 +1,7 @@
 #pragma once
 #include <utility>
 #include "MetaAttribute.h"
-#include "TestInter.h"
+#include "TestBase.h"
 
 class [[MetaAttr::Reflect(), MetaAttr::BindToLua()]] Base
 {
@@ -13,11 +13,16 @@ class [[MetaAttr::Reflect()]]  Dirived : public Base
 	
 };
 
+enum [[MetaAttr::Reflect()]] fooEnum
+{
+	foo1,
+	foo2,
+	foo3
+};
 
 class [[MetaAttr::BindToLua()]] Foo
 {
 public:
-	[[MetaAttr::Reflect(), MetaAttr::BindToLua()]]
 	int Bar = 0666 + 2;
 	Foo();
 	~Foo();
@@ -30,7 +35,7 @@ private:
 
 namespace TestSpace
 {
-	class [[MetaAttr::Reflect()]] TestFoo : public TestInter
+	class [[MetaAttr::Reflect()]] TestFoo : public TestBase
 	{
 	public:
 		bool Run() override;

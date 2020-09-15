@@ -1,15 +1,15 @@
 #pragma once
 #include <vector>
 #include "Singleton.h"
-class TestInter;
+class TestBase;
 
 class TestManager
 {
 public:
 	void RunTests();
-	void RegisterTest(TestInter *test);
+	void RegisterTest(TestBase *test);
 private:
-	std::vector<TestInter *> _tests;
+	std::vector<TestBase *> _tests;
 };
 
 DECLARE_SINGLETON(TestManager);

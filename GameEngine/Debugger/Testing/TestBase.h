@@ -2,10 +2,10 @@
 #include "StaticConstructor.h"
 #include "MetaAttribute.h"
 
-class [[MetaAttr::Reflect()]] TestInter
+class [[MetaAttr::Reflect()]] TestBase
 {
 public:
-	virtual ~TestInter() = default;
+	virtual ~TestBase() = default;
 	virtual bool Run() { return false; }
 	virtual const char* GetName() { return "you forgot to name this you dumb fuck"; }
 private:

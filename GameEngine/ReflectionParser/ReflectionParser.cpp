@@ -6,6 +6,7 @@
 #include "Windows.h"
 #include "FileTimeChecker.h"
 #include "IncludesManager.h"
+#include "ParserOutputFormats.h"
 #include "VSProjParser.h"
 using namespace std::filesystem;
 void GetFiles(path cur, std::vector<path> &out)
@@ -53,15 +54,23 @@ int main(int argc, char *argv[])
 
 		if(!FileTimeChecker::Init())
 		{
-			printf("Failed to init, this isn't good\n");
+			printf("Failed to init file time checker, this isn't good\n");
 			fflush(stdout);
 			
 			return 1;
 		}
+
+		if(!POFManager::Init())
+		{
+			printf("Failed to init Parser output formats, make sure the folder ./GameEngine/ParserFormats is ok\n");
+
+			return 4;
+		}
 		
-		printf("Running on %s (but not really right now)\n", argv[1]);
-		return 1;
+		printf("Running on %s\n", argv[1]);
+		
 		size_t arglen = strlen(argv[1]);
+		
 		if (argv[1][arglen - 1] == '\\')
 			argv[1][arglen - 1] = 0;
 

@@ -1,8 +1,8 @@
 #pragma once
-#include "TestInter.h"
+#include "TestBase.h"
 
 class VallocTest :
-	public TestInter
+	public TestBase
 {
 public:
 	VallocTest();

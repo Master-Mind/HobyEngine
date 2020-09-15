@@ -11,7 +11,8 @@ friend CXChildVisitResult ast_visitor(CXCursor c, CXCursor parent, CXClientData 
 friend CXChildVisitResult ast_class_parse(CXCursor c, CXCursor parent, CXClientData nodeVoid);\
 friend CXChildVisitResult ast_var_parse(CXCursor c, CXCursor parent, CXClientData varVoid);\
 friend CXChildVisitResult ast_func_parse(CXCursor c, CXCursor parent, CXClientData funcVoid);\
-friend class ASTWriter
+friend class ASTWriter;\
+friend class ParserOutputFormat
 
 class AST
 {

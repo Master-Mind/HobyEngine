@@ -1,5 +1,5 @@
 #include "TestManager.h"
-#include "TestInter.h"
+#include "TestBase.h"
 #include "Debugger.h"
 DEFINE_SINGLETON(TestManager);
 
@@ -10,7 +10,7 @@ void TestManager::RunTests()
 		const char *testName = test->GetName();
 		std::string testResult = "The test \"";
 		testResult += test->GetName();
-		testResult += " has ";
+		testResult += "\" has ";
 
 		if(!test->Run())
 		{
@@ -23,7 +23,7 @@ void TestManager::RunTests()
 	}
 }
 
-void TestManager::RegisterTest(TestInter* test)
+void TestManager::RegisterTest(TestBase* test)
 {
 	_tests.push_back(test);
 }

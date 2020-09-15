@@ -8,7 +8,7 @@
   },
   "PreBuild": [
     {
-      "Enabled": true,
+      "Enabled": false,
       "Name": "RunReflectionParser",
       "IgnoreIfBuildFailed": true,
       "ExecutionOrder": {

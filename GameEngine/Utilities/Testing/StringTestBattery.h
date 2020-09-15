@@ -1,8 +1,8 @@
 #pragma once
 #include <vector>
-#include "TestInter.h"
+#include "TestBase.h"
 
-class [[MetaAttr::Reflect()]] StringTestBattery : public TestInter
+class [[MetaAttr::Reflect()]] StringTestBattery : public TestBase
 {
 public:
 	bool Run() override;

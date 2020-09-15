@@ -1,8 +1,8 @@
 #pragma once
 #include <vector>
-#include "TestInter.h"
+#include "TestBase.h"
 
-class FileSystemTestBattery : public TestInter
+class FileSystemTestBattery : public TestBase
 {
 public:
 	bool Run() override;
