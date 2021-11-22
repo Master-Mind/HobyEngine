@@ -1,3 +1,0 @@
-<format>
-	AddMember&lt;__COUNTER__ - countStart&gt;(nullptr, \"<var>spelling</var>\", &temp-&gt;<var>spelling</var>, MetaAttr::PlaceHolder());
-</format>

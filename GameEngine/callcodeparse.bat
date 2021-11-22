@@ -1,1 +1,0 @@
-..\ReflectionParserBootstrapper\bin\Win64\Release\ReflectionParserBootstrapper.exe GameEngine.sln %1

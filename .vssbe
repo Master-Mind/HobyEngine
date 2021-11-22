@@ -1,0 +1,114 @@
+﻿{
+  "Header": {
+    "_": [
+      " This requires vsSolutionBuildEvent engine.",
+      " Free plugin for Visual Studio or MSBuild Tools:",
+      "  * https://github.com/3F/vsSolutionBuildEvent",
+      "  * https://visualstudiogallery.msdn.microsoft.com/0d1dbfd7-ed8a-40af-ae39-281bfeca2334/",
+      " Feedback: github.com/3F  or entry.reg@gmail.com"
+    ],
+    "Compatibility": "0.9"
+  },
+  "Components": [
+    {
+      "ClassName": "InternalComponent",
+      "Enabled": true
+    },
+    {
+      "ClassName": "UserVariableComponent",
+      "Enabled": true
+    },
+    {
+      "ClassName": "TryComponent",
+      "Enabled": true
+    },
+    {
+      "ClassName": "OWPComponent",
+      "Enabled": true
+    },
+    {
+      "ClassName": "NuGetComponent",
+      "Enabled": true
+    },
+    {
+      "ClassName": "FunctionComponent",
+      "Enabled": true
+    },
+    {
+      "ClassName": "FileComponent",
+      "Enabled": true
+    },
+    {
+      "ClassName": "DTEComponent",
+      "Enabled": true
+    },
+    {
+      "ClassName": "BuildComponent",
+      "Enabled": true
+    },
+    {
+      "ClassName": "BoxComponent",
+      "Enabled": true
+    },
+    {
+      "ClassName": "SevenZipComponent",
+      "Enabled": true
+    },
+    {
+      "ClassName": "ConditionComponent",
+      "Enabled": true
+    },
+    {
+      "ClassName": "MSBuildComponent",
+      "Enabled": true
+    },
+    {
+      "ClassName": "CommentComponent",
+      "Enabled": true
+    }
+  ],
+  "PreBuild": [
+    {
+      "Enabled": true,
+      "Name": "Act",
+      "Caption": "",
+      "SupportMSBuild": true,
+      "SupportSBEScripts": true,
+      "IgnoreIfBuildFailed": false,
+      "BuildType": "Common",
+      "Confirmation": false,
+      "ToConfiguration": [
+        "Debug|Win64",
+        "Release|Win64"
+      ],
+      "ExecutionOrder": {
+        "$type": "net.r_eg.vsSBE.Events.ExecutionOrder[], vsSolutionBuildEvent",
+        "$values": []
+      },
+      "Process": {
+        "$type": "net.r_eg.vsSBE.Events.EventProcess, vsSolutionBuildEvent",
+        "Waiting": true,
+        "Hidden": true,
+        "TimeLimit": 30
+      },
+      "Mode": {
+        "$type": "net.r_eg.vsSBE.Events.ModeFile, vsSolutionBuildEvent",
+        "Type": "File",
+        "Command": "C:/Users/pholl/source/repos/GameEngine/ReflectionParser/bin/Win64/Release \"./\"",
+        "Command__": [
+          "C:/Users/pholl/source/repos/GameEngine/ReflectionParser/bin/Win64/Release \"./\""
+        ]
+      }
+    }
+  ],
+  "PostBuild": [],
+  "CancelBuild": [],
+  "WarningsBuild": [],
+  "ErrorsBuild": [],
+  "OWPBuild": [],
+  "Transmitter": [],
+  "CommandEvent": [],
+  "Logging": [],
+  "SlnOpened": [],
+  "SlnClosed": []
+}
